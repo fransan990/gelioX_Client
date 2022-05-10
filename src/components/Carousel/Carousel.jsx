@@ -1,7 +1,7 @@
 import './Carousel.css'
 
-const Carousel = () => {
+const CarouselHeader = () => {
     // return ()
 }
 
-export default Carousel
+export default CarouselHeader
