@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.service"
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
-const SignupForm = () => {
+const SignupForm = ({ fireFinalActions }) => {
 
     const [signupData, setSignupData] = useState({
         fullName: '',
@@ -15,7 +15,7 @@ const SignupForm = () => {
 
     })
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -23,7 +23,7 @@ const SignupForm = () => {
         authService
             .signup(signupData)
             .then(res => {
-                navigate('/inicio-sesion')
+                fireFinalActions()
             })
             .catch(err => console.log(err))
     }

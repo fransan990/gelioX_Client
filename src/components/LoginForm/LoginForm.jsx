@@ -3,9 +3,9 @@ import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
+import { MessageContext } from '../../context/message.context'
 
-
-const Loginform = () => {
+const Loginform = ({ fireFinalActions }) => {
 
     const [loginData, setLoginData] = useState({
         password: '',
@@ -15,6 +15,7 @@ const Loginform = () => {
     const navigate = useNavigate()
 
     const { storeToken, authenticateUser } = useContext(AuthContext)
+    const { showMessage } = useContext(MessageContext)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -24,6 +25,8 @@ const Loginform = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
+                showMessage('Bienvenid@', 'Sesión iniciada correctamente', 'top')
+                fireFinalActions()
                 navigate('/')
             })
             .catch(err => console.log(err))
@@ -39,7 +42,6 @@ const Loginform = () => {
     return (
 
         <Form onSubmit={handleSubmit}>
-
             <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" onChange={handleInputChange} name="email" value={email} />

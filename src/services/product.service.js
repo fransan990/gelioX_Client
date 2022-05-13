@@ -1,20 +1,21 @@
 import axios from 'axios'
 
-class CoastersService {
+class ProductService {
 
     constructor() {
 
-        this.app = axios.create({ baseURL: 'http://localhost:5005/api/coasters' })
+        this.app = axios.create({
+            baseURL: `${process.env.REACT_APP_API_URL}/product`
+        })
 
         this.app.interceptors.request.use((config) => {
-            const storedToken = localStorage.getItem("authToken")
+
+            const storedToken = localStorage.getItem("authToken");
 
             if (storedToken) {
                 config.headers = { Authorization: `Bearer ${storedToken}` }
-
             }
             return config
-
         })
     }
 
@@ -27,12 +28,12 @@ class CoastersService {
     }
 
     saveProduct = product => {
-        return this.app.post(`/saveProduct`, product)
+        return this.app.post('/saveProduct', product)
     }
-
-    deleteProduct = product => {
-        return this.app.post(`/productdelete/${id}`)
-    }
+    //da error por el id
+    // deleteProduct = product => {
+    //     return this.app.post(`/productdelete/${id}`)
+    // }
 
     savedCart = id => {
         return this.app.post(`/savedCart/${id}`)
@@ -44,6 +45,6 @@ class CoastersService {
 
 }
 
-const coastersService = new CoastersService()
+const productService = new ProductService()
 
-export default coastersService
+export default productService
