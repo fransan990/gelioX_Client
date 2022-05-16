@@ -1,36 +1,19 @@
 import { Container, Modal, Button, Col } from 'react-bootstrap'
 import { useContext, useEffect, useState } from "react"
 import ProductsList from '../../components/ProductList/Productlist'
-import productService from '../../services/product.service'
+import { ProductContext } from '../../context/products.context'
 import './ProductsPage.css'
 
-const ProductsPage = ({ setInProductsPage, send }) => {
 
-    const [products, setproducts] = useState([])
+const ProductsPage = () => {
 
-    useEffect(() => {
-        loadproducts()
-        setInProductsPage(true)
+    const { products } = useContext(ProductContext)
 
-        return () => {
-            setInProductsPage(false)
-        }
-    }, [send])
+    console.log("contexto--", products)
 
-    const loadproducts = () => {
-        productService
-            .getAllProducts()
-            .then(({ data }) => {
-                console.log('la data --->', data)
-                setproducts(data)
-            })
-            .then(err => console.log(err))
-    }
-
-    console.log("products", products)
     return (
 
-        <Col md={12} className=" distanciadelNavbar">
+        <Col md={12} className="distanciadelNavbar">
             <h1>Productos</h1>
             <hr />
             <ProductsList products={products} />

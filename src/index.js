@@ -7,15 +7,20 @@ import App from './App';
 
 import { AuthProviderWrapper } from './context/auth.context';
 import { MessageProviderWrapper } from './context/message.context';
+import { ProductProviderWrapper } from './context/products.context';
+
 
 ReactDOM.render(
-  <MessageProviderWrapper>
-    <AuthProviderWrapper>
-      <Router>
-        <App />
-      </Router>
-    </AuthProviderWrapper>
-  </MessageProviderWrapper>,
+  <ProductProviderWrapper>
+    <MessageProviderWrapper>
+      <AuthProviderWrapper>
+        <Router>
+          <App />
+        </Router>
+      </AuthProviderWrapper>
+    </MessageProviderWrapper>
+  </ProductProviderWrapper>
+  ,
 
   document.getElementById('root')
 )
