@@ -24,7 +24,7 @@ const Navigation = ({ setSend }) => {
 
     const openModal = content => setModalInfo({ show: true, content })
     const closeModal = () => {
-        setSend(false)
+
         setModalInfo({ ...modalInfo, show: false })
     }
 

@@ -8,3 +8,11 @@ img {
     width: 1500px;
 
 }
+
+.fotoPortadaPI {
+    /* background-image: url("../../../images/gafas-sol_PaginaHome.jpeg"); */
+    background-image: url("../../../public/images/gafas-sol_PaginaHome.jpeg");
+    width: 1500px;
+    /* background-color: red; */
+
+}
