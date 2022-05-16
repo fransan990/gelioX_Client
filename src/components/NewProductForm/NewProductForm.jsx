@@ -1,12 +1,13 @@
 import "./NewProductForm.css"
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Form, Button } from "react-bootstrap"
 
 import uploadService from "../../services/upload.service"
 import productService from "../../services/product.service"
+import { ProductContext } from "../../context/products.context"
 
-const NewProductForm = ({ fireFinalActions, setSend }) => {
+const NewProductForm = ({ fireFinalActions }) => {
 
     const [productDate, setproductDate] = useState({
         title: '',
@@ -19,6 +20,7 @@ const NewProductForm = ({ fireFinalActions, setSend }) => {
         stock: 0
     })
 
+    const { setUpdateStatus } = useContext(ProductContext)
     const [loadingImage, setLoadingImage] = useState(false)
 
     const handleInputChange = e => {
@@ -38,7 +40,7 @@ const NewProductForm = ({ fireFinalActions, setSend }) => {
             .saveProduct(productDate)
             .then(response => {
                 fireFinalActions()
-                setSend(true)
+                setUpdateStatus(true)
             })
             .catch(err => console.log(err))
     }

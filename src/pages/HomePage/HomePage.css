@@ -2,17 +2,40 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+
 }
 
-img {
+.imgPortadaInicio {
     width: 1500px;
+    height: 850px;
 
 }
 
 .fotoPortadaPI {
-    /* background-image: url("../../../images/gafas-sol_PaginaHome.jpeg"); */
-    background-image: url("../../../public/images/gafas-sol_PaginaHome.jpeg");
-    width: 1500px;
-    /* background-color: red; */
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.textoEncima {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.centrado {
+    position: absolute;
+    top: 77%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.textoIzquierda {
+    text-align: right;
+    position: absolute;
+    top: 71%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    color: black;
 
 }

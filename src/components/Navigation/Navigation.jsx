@@ -41,7 +41,8 @@ const Navigation = ({ setSend }) => {
     return (
 
         <Col xs={12} lg={12} className="text-white">
-            <Navbar collapseOnSelect expand="lg" fixed="top" border="danger" className='p-3' >
+            {/*  */}
+            <Navbar collapseOnSelect expand="lg" border="danger" fixed="top" className='p-3' >
                 <Navbar.Brand><NavLink to="/">gelioX</NavLink></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

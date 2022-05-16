@@ -6,16 +6,18 @@ const HomePage = () => {
         <>
             <Col lg={12}>
                 <div className="fotoPortadaPI">
-                    <h1>
-                        hola
-                    </h1>
-                </div>
-                {/* <img src="../../../images/gafas-sol_PaginaHome.jpeg" alt="" className="img-fluid" /> */}
 
+                    <img src="../../../images/gafas-sol_PaginaHome.jpeg" alt="" className="img-fluid imgPortadaInicio" />
+                    <div class="centrado">
+                        <h1>TIME SOAKED SUMMER</h1>
+                    </div>
+                    <div class="textoIzquierda">spring collection</div>
+
+
+                </div>
             </Col>
             <Col lg={12}>
-                dedq
-
+                <h1>hola</h1>
             </Col>
         </>
     )

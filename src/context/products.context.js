@@ -6,24 +6,27 @@ const ProductContext = createContext()
 
 function ProductProviderWrapper(props) {
 
-    const [products, setproducts] = useState()
-
+    const [products, setProducts] = useState()
+    const [updateStatus, setUpdateStatus] = useState(true)
 
     useEffect(() => {
-        loadproducts()
-    })
+        updateStatus && loadproducts()
+    }, [updateStatus])
 
     const loadproducts = () => {
+
         productService
             .getAllProducts()
             .then(({ data }) => {
-                setproducts(data)
+                console.log('estoy renovandome los productos')
+                setProducts(data)
+                setUpdateStatus(false)
             })
             .then(err => console.log(err))
     }
 
     return (
-        <ProductContext.Provider value={{ products, setproducts }}>
+        <ProductContext.Provider value={{ products, setUpdateStatus }}>
             {props.children}
         </ProductContext.Provider>
     )
