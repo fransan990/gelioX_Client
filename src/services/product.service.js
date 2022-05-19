@@ -30,10 +30,6 @@ class ProductService {
     saveProduct = product => {
         return this.app.post('/saveProduct', product)
     }
-    //da error por el id
-    // deleteProduct = product => {
-    //     return this.app.post(`/productdelete/${id}`)
-    // }
 
     savedCart = id => {
         return this.app.post(`/savedCart/${id}`)
@@ -44,7 +40,6 @@ class ProductService {
     }
 
     productSearch = (searchQuery) => {
-        //Hcer que funcione todos los filtros 
 
         let fullQuery = `/listProductSearch/?`
 

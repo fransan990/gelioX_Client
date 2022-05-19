@@ -1,5 +1,5 @@
 import './Navigation.css'
-import { Navbar, Nav, NavDropdown, Col, Button } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Col, Button, Offcanvas } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../context/auth.context'
@@ -10,12 +10,19 @@ import LoginForm from '../LoginForm/LoginForm'
 import MyModal from '../Modal/Modal'
 import NewProductForm from '../NewProductForm/NewProductForm'
 import OffCanvasEnd from '../OffCanvasEnd/OffCanvasEnd'
+import CartPage from '../../pages/CartPage/CartPage'
 
 
 
 const Navigation = ({ setSend }) => {
 
     const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
 
     const [modalInfo, setModalInfo] = useState({
         show: false,
@@ -90,12 +97,21 @@ const Navigation = ({ setSend }) => {
                             }
 
                         </NavDropdown>
-                        
-                            <NavLink to="/cart" className="nav-link me-3 mx-4">Cart</NavLink>
+
+                        <Button className="nav-link me-3 mx-4" onClick={handleShow}>Cart</Button>
 
                     </Nav>
                 </Navbar.Collapse >
             </Navbar>
+
+            <Offcanvas show={show} onHide={handleClose} placement={"end"}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title className='text-center'>Carrito</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <CartPage />
+                </Offcanvas.Body>
+            </Offcanvas>
 
             <MyModal title={title} show={modalInfo.show} close={closeModal}>
                 {modalInfo.content === 'login' && <LoginForm fireFinalActions={fireFinalActions} />}

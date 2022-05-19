@@ -7,38 +7,37 @@ const ProductContext = createContext()
 function ProductProviderWrapper(props) {
 
     const [products, setProducts] = useState()
-    const [updateStatus, setUpdateStatus] = useState(true)
     const [searchQuery, setSearchQuery] = useState({
-        form: '',
+        string: '',
         size: '',
         category: ''
     })
 
-
     useEffect(() => {
-        updateStatus && loadproducts()
-    }, [updateStatus, searchQuery])
-
-    useEffect(() => {
-        console.log('susmuertos ----->', searchQuery)
-    }, [searchQuery])
-
-    console.log('susmnnuertos1 products-Contex', searchQuery)
+        loadproducts()
+    }, [])
 
     const loadproducts = () => {
+        productService
+            .getAllProducts()
+            .then(({ data }) => {
+                setProducts(data)
+            })
+            .catch(err => console.log(err))
+    }
 
+    const filterProducts = () => {
         productService
             .productSearch(searchQuery)
             .then(({ data }) => {
                 setProducts(data)
-                setUpdateStatus(false)
             })
             .catch(err => console.log(err))
     }
 
 
     return (
-        <ProductContext.Provider value={{ products, setProducts, setUpdateStatus, setSearchQuery, searchQuery, loadproducts }}>
+        <ProductContext.Provider value={{ products, setProducts, setSearchQuery, searchQuery, loadproducts, filterProducts }}>
             {props.children}
         </ProductContext.Provider>
     )

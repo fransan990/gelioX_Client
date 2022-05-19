@@ -5,8 +5,6 @@ import ProductCard from "../ProductCard/ProductCard"
 
 const ProductsList = ({ products }) => {
 
-    console.log("productos", products)
-
 
     return (
 

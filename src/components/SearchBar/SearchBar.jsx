@@ -7,53 +7,31 @@ import "./SearchBar.css"
 
 const SearchBar = () => {
 
-    const { setUpdateStatus, setSearchQuery, searchQuery } = useContext(ProductContext)
-
-    const [searchData, setsearchData] = useState({
-        form: searchQuery.form,
-        size: searchQuery.size,
-        category: searchQuery.category
-    })
-
-    useEffect(() => {
-        setSearchQuery(searchData)
-    }, [searchData])
-
-    const handleSubmit = e => {
-        e.preventDefault()
-        setUpdateStatus(true)
-    }
+    const { filterProducts, setSearchQuery, searchQuery } = useContext(ProductContext)
 
     const handleInputChange = e => {
         const { value, name } = e.currentTarget
-        setsearchData({ ...searchData, [name]: value })
+        setSearchQuery({ ...searchQuery, [name]: value })
     }
 
-    const { form, size, category } = searchData
+    useEffect(() => filterProducts(), [searchQuery])
 
-    // useEffect(() => {
-    //     console.log('la data --->', searchData)
-    // }, [searchData])
-    // console.log("size---", size)
-    // console.log("form---", form)
-    // console.log("category---", category)
-
-
+    const { string, size, category } = searchQuery
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
+            <Form>
                 <Col lg={8} className="mx-auto m-0 group">
                     {/* <Form onKeyUp={handleSubmit} > */}
                     <Form.Group className="mb-5" controlId="form">
                         {/* <Form.Label>Buscador</Form.Label> */}
-                        <Form.Control type="text" onChange={handleInputChange} name="form" value={form} className="input" placeholder="Escribe para buscar" />
-
+                        <Form.Control type="text" onChange={handleInputChange} name="string" value={string} className="input" placeholder="Escribe para buscar" />
                     </Form.Group>
                     {/* </Form > */}
                 </Col>
                 {/* <Form onChange={handleSubmit} > */}
                 <Form.Control as='select' aria-label="Default select example" className="mb-3" name="size" value={size} onChange={handleInputChange}>
+                    {/* <option value="Seleciona">Selecciona un valor</option> */}
                     <option value="XXL">XXL</option>
                     <option value="Xl">Xl</option>
                     <option value="L">L</option>
@@ -64,6 +42,7 @@ const SearchBar = () => {
                 {/* </Form> */}
                 {/* <Form onChange={handleSubmit} > */}
                 <Form.Control as='select' aria-label="Default select example" className="mb-3" name="category" value={category} onChange={handleInputChange}>
+                    {/* <option value="Seleciona">Selecciona un valor</option> */}
                     <option value="Nike">Nike</option>
                     <option value="sneakers">sneakers</option>
                     <option value="apparel">apparel</option>

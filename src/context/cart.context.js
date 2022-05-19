@@ -40,7 +40,7 @@ function CartProviderWrapper(props) {
         cartService
             .addItem(itemId, itemQ)
             .then((updatedCart) => {
-                
+
                 setCart(updatedCart)
                 setAddStatus(false)
             })
@@ -68,12 +68,13 @@ function CartProviderWrapper(props) {
         cartService
             .getAllItems()
             .then(({ data }) => {
-                console.log('somos los items', data)
                 setCartItems(data)
-                console.log('holiiiiiiii', cartItems)
             })
             .catch(err => console.log(err))
     }
+
+    useEffect(() => { getAllItems() }, [])
+
     return (
         <CartContext.Provider value={{ cart, setCart, getStatus, setGetStatus, setAddStatus, addItem, getAllItems, cartItems, updateQuantity, deleteItem }}>
             {props.children}
