@@ -43,6 +43,18 @@ class ProductService {
         return this.app.post(`/productlike/${id}`)
     }
 
+    productSearch = (query = '') => {
+        return this.app.get(`/listProductSearch/?query=${query}`)
+    }
+    productFilterSize = form => {
+        return this.app.get(`/listProductSize/?form=${form}`)
+    }
+
+    productFav = id => {
+        return this.app.post(`/${id}/productFav`)
+    }
+
+
 }
 
 const productService = new ProductService()

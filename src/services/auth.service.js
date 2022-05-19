@@ -19,7 +19,6 @@ class AuthService {
     verify = token => {
         return this.app.get('/verify', { headers: { Authorization: `Bearer ${token}` } })
     }
-
 }
 
 const authService = new AuthService()

@@ -40,9 +40,8 @@ const Navigation = ({ setSend }) => {
 
     return (
 
-        <Col xs={12} lg={12} className="text-white">
-            {/*  */}
-            <Navbar collapseOnSelect expand="lg" border="danger" fixed="top" className='p-3' >
+        <Col xs={12} lg={12} className="mb-5">
+            <Navbar collapseOnSelect expand="lg" border="danger" fixed="top" className='p-3  navbar-light bg-light opacity-75 fw-bold' >
                 <Navbar.Brand><NavLink to="/">gelioX</NavLink></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -70,11 +69,14 @@ const Navigation = ({ setSend }) => {
                                                 <NavDropdown.Divider />
                                                 <NavDropdown.Item className="nav-link justify-content-end text-dark">Bienvenido, {user.role}</NavDropdown.Item>
                                                 <NavDropdown.Item><NavLink to="/XXXXX" className="nav-link justify-content-end text-dark">BackOffice</NavLink></NavDropdown.Item>
+                                                <NavDropdown.Item className="nav-link justify-content-end text-dark" onClick={() => openModal('newProduct')}>Nuevo Producto</NavDropdown.Item>
+
                                             </>
                                         }
                                         {
                                             user.role !== "USER" && <>
-                                                <NavDropdown.Item className="nav-link justify-content-end text-dark" onClick={() => openModal('newProduct')}>Nuevo Producto</NavDropdown.Item>
+                                                <NavDropdown.Item><NavLink to={'/productos-favoritos'} className="nav-link justify-content-end text-dark btn-floating">Productos Favoritos</NavLink></NavDropdown.Item>
+
                                             </>
                                         }
                                         <NavDropdown.Divider />
@@ -100,7 +102,7 @@ const Navigation = ({ setSend }) => {
                 {modalInfo.content === 'newProduct' && <NewProductForm setSend={setSend} fireFinalActions={fireFinalActions} />}
                 {modalInfo.content === 'cart' && <OffCanvasEnd fireFinalActions={fireFinalActions} />}
             </MyModal>
-        </Col>
+        </Col >
     )
 }
 

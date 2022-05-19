@@ -26,16 +26,513 @@
 .centrado {
     position: absolute;
     top: 77%;
-    left: 70%;
+    left: 59%;
+    width: 1000px;
+    color: white;
     transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-size: 5em;
+    color: white;
 }
 
 .textoIzquierda {
     text-align: right;
     position: absolute;
-    top: 71%;
-    left: 80%;
+    top: 69%;
+    left: 79%;
+    color: white;
     transform: translate(-50%, -50%);
-    color: black;
 
 }
+
+.box1 {
+    background-color: rgba(254, 219, 170, 0.5);
+    padding: 90px;
+    position: absolute;
+    top: 65%;
+    left: 77%;
+}
+
+.boxIz {
+    position: absolute;
+    /* top: 3px; */
+    /* bottom: -67px; */
+    top: 145%;
+    left: 70px;
+    width: 343px;
+}
+
+.boxIzC {
+    position: absolute;
+    top: 94%;
+    width: 300px;
+}
+
+.boxDeC {
+    position: absolute;
+    top: 101%;
+    width: 396px;
+    left: 720px;
+}
+
+.boxDe {
+    position: absolute;
+    width: 300px;
+    top: 126%;
+    right: 142px;
+}
+
+.box2 {
+    background-color: rgba(254, 219, 170, 0.5);
+    padding: 90px;
+    position: absolute;
+    top: 130%;
+    left: 18%;
+}
+
+.cajaTextoFotos {
+    position: absolute;
+    top: 150%;
+    left: 34%;
+
+}
+
+/* //boton  */
+
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+}
+
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background-color: rgba(254, 219, 170, 0.5);
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+
+.cta span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: black;
+}
+
+.cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: black;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+    width: 100%;
+    background-color: rgba(254, 219, 170, 0.5);
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active {
+    transform: scale(0.95);
+}
+
+.cajaSeccion3 {
+    position: absolute;
+    top: 200%;
+
+}
+
+.cajaSeccion3Foto1 {
+
+    position: relative;
+    left: 35px;
+}
+
+.cajaSeccion3Foto1_1 {
+    margin-top: 23px;
+    width: 300px;
+}
+
+.cajaSeccion5Foto2_1 {
+    position: relative;
+    /* top: 12px; */
+    /* left: 12px; */
+    right: 450px;
+    height: 300px;
+    width: 120px;
+
+}
+
+.cajaSeccion3Foto2 {
+
+    position: relative;
+    right: 30px;
+    top: 30px;
+
+}
+
+.cajaSeccion3Foto3 {
+
+    position: relative;
+    /* bottom: 479px; */
+    left: 590px;
+    text-align: center;
+    background-color: white;
+    padding: 80px;
+    bottom: 498px;
+
+
+}
+
+.buttonCajaSeccion3Foto3 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: rgba(254, 219, 170, 0.5);
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: none;
+    margin: 0px;
+    margin: auto;
+}
+
+.buttonCajaSeccion3Foto3:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+}
+
+.buttonCajaSeccion3Foto3:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+
+.buttonCajaSeccion3Foto3 span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 18px 25px;
+    color: black;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+}
+
+.buttonCajaSeccion3Foto3:hover span {
+    color: white;
+    animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cajaSeccion4 {
+    position: absolute;
+    top: 300%;
+    text-align: center;
+
+}
+
+.cajaSeccion4 img {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+
+}
+
+.cajaBlanca1 {
+    background-color: #eeeeee;
+    padding: 20px;
+    width: 350px;
+    height: 300px;
+    position: relative;
+    bottom: 40%;
+    left: 23%;
+    z-index: -1;
+}
+
+.textoCajaSeccion4 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    text-align: left;
+
+}
+
+.textoCajaSeccion4 h4 {
+    margin-bottom: 23px;
+
+
+}
+
+h4 {
+    font-weight: 900;
+
+}
+
+
+.textoCajaSeccion4_1 {
+    text-align: left;
+    margin-left: 67px;
+    margin-bottom: 85px;
+    margin-top: 30px;
+}
+
+.textoCajaSeccion4_2 {
+    position: absolute;
+    top: 50%;
+    left: 72%;
+    text-align: left;
+
+}
+
+.cajaSeccion5 {
+    position: absolute;
+    top: 400%;
+}
+
+.cajaSeccion5Foto1 {
+    position: relative;
+    left: 190px;
+    width: 494px;
+
+}
+
+.cajaSeccion5Foto2 {
+    position: relative;
+    left: 100px;
+    width: 454px;
+}
+
+.cajaSeccion5Foto3 {
+
+    position: relative;
+    /* bottom: 479px; */
+    left: 590px;
+    text-align: center;
+    background-color: white;
+    padding: 80px;
+    bottom: 550px;
+
+
+}
+
+.textoCajaSeccion5 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    text-align: left;
+
+}
+
+.cajaSeccion3Foto2_1 {
+    margin-top: 23px;
+    width: 300px;
+    margin-left: 255px;
+}
+
+.cajaSeccion6 {
+    position: absolute;
+    top: 515%;
+}
+
+h5 {
+    font-weight: 900;
+}
+
+.cajaSeccion7 {
+    position: absolute;
+    top: 590%;
+}
+
+.cajaSeccion7 img {
+    width: 380px;
+    object-fit: cover;
+}
+
+.cajaSeccion7_img1 {
+    margin-top: 167px;
+    /* margin-left: 23px; */
+    position: relative;
+    /* left: 98px; */
+    width: 280px !important;
+
+    /* margin-top: 167px; */
+
+    /* margin-left: 23px; */
+    /* position: relative; */
+    left: 50px;
+    top: 2%;
+    /* width: 220px !important; */
+
+}
+
+.cajaSeccion7_img3 {
+    margin-top: 86px;
+    /* margin-left: 23px; */
+    position: relative;
+    /* left: 98px; */
+    top: 13%;
+    right: 10%;
+    width: 280px !important;
+}
+
+.cajaSeccion7_img4_5 {
+    /* margin-top: 86px; */
+    /* margin-left: 23px; */
+    position: relative;
+    bottom: 27%;
+    /* left: 98px; */
+    /* top: -15%; */
+    /* right: 21%; */
+    width: 540px !important;
+}
+
+/* .cajaSeccion7_img4_5_1 { */
+/* margin-top: 86px; */
+/* margin-left: 23px; */
+/* position: relative; */
+/* bottom: 54%; */
+/* left: 2%; */
+/* left: 98px; */
+/* top: 19%; */
+/* right: 21%; */
+/* width: 220px !important; */
+/* } */
+
+.cajaSeccion7_img5_6 {
+    position: relative;
+    bottom: 16%;
+    left: 50px;
+    width: 280px !important;
+}
+
+.cajaSeccion7_img5_7 {
+    position: relative;
+    /* width: 300px !important; */
+    bottom: 16%;
+}
+
+.cajaSeccion7_img5_8 {
+    /* margin-left: 23px; */
+    position: relative;
+    /* left: 98px; */
+    /* top: 12.5%; */
+    right: 10%;
+    bottom: 15%;
+    width: 260px !important;
+}
+
+.cajaSeccion7_ti {
+
+    position: absolute;
+    top: 40%;
+    z-index: 1;
+    text-align: center;
+    background-color: white;
+    padding: 80px;
+    left: 41%;
+}
+
+.footer {
+    position: absolute;
+    top: 760%;
+
+}
+
+
+.face {
+    background-color: #3b5998;
+}
+
+.twiter {
+    background-color: #55acee
+}
+
+.google {
+    background-color: #dd4b39
+}
+
+.instagram {
+    background-color: #ac2bac
+}
+
+.linkedin {
+    background-color: #0082ca;
+}
+
+.github {
+    background-color: #333333;
+}
+
+
+.cajaFooter {
+
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+/* .parallax-bg {
+    background-position: center center;
+    transform: translateZ(-0.5px) scale(2);
+    background-size: cover;
+    z-index: -1;
+    height: 50vh;
+}
+
+.parallax-content {
+    z-index: -1;
+    transform: translateY(-25vh) translateZ(0px) scale(1);
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+} */
