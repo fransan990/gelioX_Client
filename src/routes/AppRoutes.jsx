@@ -4,6 +4,7 @@ import PrivateRoute from "./PrivateRoute"
 import HomePage from "../pages/HomePage/HomePage"
 import ProductsPage from '../pages/ProductsPage/ProductsPage'
 import ProductDetailsPage from '../pages/ProductsDetailsPage/ProductsDetailsPage'
+import CartPage from '../pages/CartPage/CartPage'
 
 
 const AppRoutes = ({ setInProductsPage, send }) => {
@@ -18,6 +19,7 @@ const AppRoutes = ({ setInProductsPage, send }) => {
             <Route path="/perfil" element={<PrivateRoute />}>
                 <Route path="" element={<ProfilePage />} />
             </Route>
+            <Route path="/cart" element={<CartPage/>}/>
             <Route path="*" element={<h1>Esto es un 404, Algo seguro que tenemos mal </h1>} />
         </Routes>
     )

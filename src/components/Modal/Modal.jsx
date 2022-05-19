@@ -1,4 +1,5 @@
 import { Modal } from 'react-bootstrap'
+import './Modal.css'
 
 const MyModal = ({ title, show, close, children }) => {
 
@@ -15,5 +16,7 @@ const MyModal = ({ title, show, close, children }) => {
 
     )
 }
+
+//MODALS DE CRISTAL POR FAAAA
 
 export default MyModal

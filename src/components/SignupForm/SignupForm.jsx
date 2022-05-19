@@ -19,7 +19,6 @@ const SignupForm = ({ fireFinalActions }) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-
         authService
             .signup(signupData)
             .then(res => {

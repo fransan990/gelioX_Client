@@ -9,16 +9,13 @@ const ProductsPage = () => {
 
     const { products } = useContext(ProductContext)
 
-    console.log("contexto--", products)
-
     return (
 
         <Col md={12} className="distanciadelNavbar">
-            <h1>Productos</h1>
+            <h1>Productossssssss</h1>
             <hr />
             <ProductsList products={products} />
         </Col>
-
     )
 }
 

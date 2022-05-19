@@ -88,7 +88,8 @@ const Navigation = ({ setSend }) => {
                             }
 
                         </NavDropdown>
-                        <Button variant="primary" onClick={() => openModal('cart')} className="me-2"><FaShoppingCart /></Button>
+                        
+                            <NavLink to="/cart" className="nav-link me-3 mx-4">Cart</NavLink>
 
                     </Nav>
                 </Navbar.Collapse >
@@ -98,7 +99,7 @@ const Navigation = ({ setSend }) => {
                 {modalInfo.content === 'login' && <LoginForm fireFinalActions={fireFinalActions} />}
                 {modalInfo.content === 'signup' && <SignupForm fireFinalActions={fireFinalActions} />}
                 {modalInfo.content === 'newProduct' && <NewProductForm setSend={setSend} fireFinalActions={fireFinalActions} />}
-                {modalInfo.content === 'cart' && <OffCanvasEnd fireFinalActions={fireFinalActions} />}
+                {/* {modalInfo.content === 'cart' && <OffCanvasEnd fireFinalActions={fireFinalActions} />} */}
             </MyModal>
         </Col>
     )

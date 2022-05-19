@@ -8,18 +8,21 @@ import App from './App';
 import { AuthProviderWrapper } from './context/auth.context';
 import { MessageProviderWrapper } from './context/message.context';
 import { ProductProviderWrapper } from './context/products.context';
+import { CartProviderWrapper } from './context/cart.context'
 
 
 ReactDOM.render(
+  <AuthProviderWrapper>
+  <CartProviderWrapper>
   <ProductProviderWrapper>
     <MessageProviderWrapper>
-      <AuthProviderWrapper>
         <Router>
           <App />
         </Router>
-      </AuthProviderWrapper>
     </MessageProviderWrapper>
   </ProductProviderWrapper>
+  </CartProviderWrapper>
+  </AuthProviderWrapper>
   ,
 
   document.getElementById('root')

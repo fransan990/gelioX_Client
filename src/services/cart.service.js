@@ -2,25 +2,35 @@ import axios from 'axios'
 
 class CartService {
     constructor() {
-        this.app= axios.create({
+        this.app = axios.create({
             baseURL: `${process.env.REACT_APP_API_URL}/cart`
+        })
+
+        this.app.interceptors.request.use((config) => {
+
+            const storedToken = localStorage.getItem("authToken");
+
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+            return config
         })
     }
 
-    createCart = cart => {
-        return this.app.post('/createCart', cart)
+    getCart = cartId => {
+        return this.app.get('/getCart', cartId)
     }
-    addItem = cart => {
-        return this.app.post('/addItem', cart)
+    addItem = (productId, productQuantity) => {
+        return this.app.post('/addItem', { productId, productQuantity })
     }
-    updateQuantity = cart => {
-        return this.app.put('/updateQuantity', cart)
+    updateQuantity = (productId, newQuantity) => {
+        return this.app.put('/updateQuantity', { productId, newQuantity})
     }
-    deleteItem = cart => {
-        return this.app.delete('/deleteItem', cart)
+    deleteItem = (productId) => {
+        return this.app.put('/deleteItem', {productId})
     }
-    getAllItems = cart => {
-        return this.app.get('/getAllItems', cart)
+    getAllItems = () => {
+        return this.app.get('/getAllItems')
     }
 }
 

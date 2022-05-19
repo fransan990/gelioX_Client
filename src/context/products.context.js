@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
 import productService from '../services/product.service'
 
-
 const ProductContext = createContext()
 
 function ProductProviderWrapper(props) {

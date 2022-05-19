@@ -1,86 +1,84 @@
-import React, { createContext, useState,useEffect } from 'react'
+import React, { createContext, useState, useEffect, useContext } from 'react'
 import cartService from '../services/cart.service'
+import { AuthContext } from './auth.context'
 
 const CartContext = createContext()
 
 function CartProviderWrapper(props) {
 
-    const [show, setShow] = useState(false)
-    const [cart, setCart] = useState({
-            product:'',
-            quantity:0
-    })
-    const showCart = (title, description) => {
-        setShow(true)
-        setMessageInfo({ title, description })
+    const [getStatus, setGetStatus] = useState(true)
+    const [addStatus, setAddStatus] = useState(false)
+
+    const [cartItems, setCartItems] = useState([])
+    const [cart, setCart] = useState(
+        {
+            owner: undefined,
+            items: []
+        }
+    )
+
+    useEffect(() => {
+        getStatus && getCart()
+        console.log('er puto goddamn carro is here biatchhhh, tengo el puto controoooooool', cart)
+        // addStatus && addItem()
+        // quantityStatus && updateQuantity()
+        // deleteStatus && deleteItem()
+        // showCart && getAllitems()
+    }, [getStatus, addStatus])
+
+    const getCart = () => {
+        cartService
+            .getCart()
+            .then(({ data }) => {
+                setCart(data[0])
+                setGetStatus(false)
+            })
+            .catch(err => console.log(err))
     }
 
+    const addItem = (itemId, itemQ) => {
+        cartService
+            .addItem(itemId, itemQ)
+            .then((updatedCart) => {
+                
+                setCart(updatedCart)
+                setAddStatus(false)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const updateQuantity = (itemId, quantity) => {
+        cartService
+            .updateQuantity(itemId, quantity)
+            .then(() => getCart())
+            .catch(err => console.log(err))
+    }
+
+    const deleteItem = (itemId) => {
+        cartService
+            .deleteItem(itemId)
+            .then(() => {
+                getCart()
+                getAllItems()
+            })
+            .catch(err => console.log(err))
+    }
+
+    const getAllItems = () => {
+        cartService
+            .getAllItems()
+            .then(({ data }) => {
+                console.log('somos los items', data)
+                setCartItems(data)
+                console.log('holiiiiiiii', cartItems)
+            })
+            .catch(err => console.log(err))
+    }
     return (
-        <CartContext.Provider value={{ show, setShow, cart, setCart }}>
+        <CartContext.Provider value={{ cart, setCart, getStatus, setGetStatus, setAddStatus, addItem, getAllItems, cartItems, updateQuantity, deleteItem }}>
             {props.children}
         </CartContext.Provider>
     )
-
-
-
-
 }
 
-export { CartContext, CartProviderWrapper}
-
-
-
-
-
-//REDUCERS JS
-// export const ADD_PRODUCT = "ADD_PRODUCT";
-// export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
-
-// const addProductToCart = (product, state) => {
-//     const updatedCart = [...state.cart];
-//     const updatedItemIndex = updatedCart.findIndex(
-//         item => item.id === product.id
-//     );
-
-//     if (updatedItemIndex < 0) {
-//         updatedCart.push({ ...product, quantity: 1 });
-//     } else {
-//         const updatedItem = {
-//             ...updatedCart[updatedItemIndex]
-//         };
-//         updatedItem.quantity++;
-//         updatedCart[updatedItemIndex] = updatedItem;
-//     }
-//     return { ...state, cart: updatedCart };
-// };
-
-// const removeProductFromCart = (productId, state) => {
-//     console.log("Removing product with id: " + productId);
-//     const updatedCart = [...state.cart];
-//     const updatedItemIndex = updatedCart.findIndex(item => item.id === productId);
-
-//     const updatedItem = {
-//         ...updatedCart[updatedItemIndex]
-//     };
-//     updatedItem.quantity--;
-//     if (updatedItem.quantity <= 0) {
-//         updatedCart.splice(updatedItemIndex, 1);
-//     } else {
-//         updatedCart[updatedItemIndex] = updatedItem;
-//     }
-//     return { ...state, cart: updatedCart };
-// };
-
-// export const shopReducer = (state, action) => {
-//     switch (action.type) {
-//         case ADD_PRODUCT:
-//             return addProductToCart(action.product, state);
-//         case REMOVE_PRODUCT:
-//             return removeProductFromCart(action.productId, state);
-//         default:
-//             return state;
-//     }
-// };
-//GLOBALSTATE JS
-
-//SHOPCONTEXT JS
+export { CartContext, CartProviderWrapper }
