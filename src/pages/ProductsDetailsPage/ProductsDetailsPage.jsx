@@ -10,7 +10,7 @@ function ProductDetailsPage() {
     const [ProductDetails, setProductDetails] = useState()
     const { cart, setCart, cartItems, setAddStatus, setShowCart, addItem} = useContext(CartContext)
     const { product_id } = useParams()
-    const [quantity, setQuantity]= useState(0)
+    const [quantity, setQuantity]= useState(1)
 
     useEffect(() => {
         productService
@@ -45,7 +45,7 @@ function ProductDetailsPage() {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="productQuantity">
                                 <Form.Label>Quantity</Form.Label>
-                                <Form.Control onChange={handleInputChange} type="number" min="0" maxvalue={ProductDetails.stock} name="productQuantity" />
+                                <Form.Control onChange={handleInputChange} type="number" min="0" value={quantity} maxvalue={ProductDetails.stock} name="productQuantity" />
                             </Form.Group>
                             <Button variant="dark" type="submit">Add to cart</Button>
                         {/* meterle un ternario al formulario para que si no hay stock aparezca otra movida */}
