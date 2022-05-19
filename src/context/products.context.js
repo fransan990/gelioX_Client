@@ -7,25 +7,35 @@ function ProductProviderWrapper(props) {
 
     const [products, setProducts] = useState()
     const [updateStatus, setUpdateStatus] = useState(true)
+    const [searchQuery, setSearchQuery] = useState()
+
 
     useEffect(() => {
         updateStatus && loadproducts()
-    }, [updateStatus])
+    }, [updateStatus, searchQuery])
+
+    // useEffect(() => {
+    //     console.log('susmuertos', searchQuery)
+    // }, [searchQuery , ])
+
+    console.log('susmnnuertos2', searchQuery)
 
     const loadproducts = () => {
 
         productService
-            .getAllProducts()
+            .productSearch(searchQuery)
             .then(({ data }) => {
                 console.log('estoy renovandome los productos')
                 setProducts(data)
+                // setFilteredProducts(data)
                 setUpdateStatus(false)
             })
-            .then(err => console.log(err))
+            .catch(err => console.log(err))
     }
 
+
     return (
-        <ProductContext.Provider value={{ products, setUpdateStatus }}>
+        <ProductContext.Provider value={{ products, setProducts, setUpdateStatus, setSearchQuery, searchQuery, loadproducts }}>
             {props.children}
         </ProductContext.Provider>
     )

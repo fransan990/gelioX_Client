@@ -5,6 +5,8 @@ import HomePage from "../pages/HomePage/HomePage"
 import ProductsPage from '../pages/ProductsPage/ProductsPage'
 import ProductDetailsPage from '../pages/ProductsDetailsPage/ProductsDetailsPage'
 import CartPage from '../pages/CartPage/CartPage'
+import ProductFavPage from '../pages/ProductFavPage/ProductFavPage'
+
 
 
 const AppRoutes = ({ setInProductsPage, send }) => {
@@ -16,6 +18,9 @@ const AppRoutes = ({ setInProductsPage, send }) => {
             <Route path="/productos" element={<ProductsPage setInProductsPage={setInProductsPage} send={send} />} />
             <Route path="/detalles/:product_id" element={<ProductDetailsPage />} />
             <Route path="/inicio-sesion" />
+            <Route path="/productos-favoritos" element={<ProductFavPage />} />
+
+
             <Route path="/perfil" element={<PrivateRoute />}>
                 <Route path="" element={<ProfilePage />} />
             </Route>
