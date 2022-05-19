@@ -43,9 +43,21 @@ class ProductService {
         return this.app.post(`/productlike/${id}`)
     }
 
-    productSearch = (query = '') => {
-        return this.app.get(`/listProductSearch/?query=${query}`)
+    productSearch = (searchQuery) => {
+        //Hcer que funcione todos los filtros 
+
+        let fullQuery = `/listProductSearch/?`
+
+        for (let key in searchQuery) {
+            fullQuery += `${key}=${searchQuery[key]}&`
+        }
+
+        console.log('la query que llega --------> ', fullQuery)
+
+        return this.app.get(fullQuery)
+
     }
+
     productFilterSize = form => {
         return this.app.get(`/listProductSize/?form=${form}`)
     }
