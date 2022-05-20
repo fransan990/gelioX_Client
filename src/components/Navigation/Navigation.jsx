@@ -81,7 +81,7 @@ const Navigation = ({ setSend }) => {
                                             </>
                                         }
                                         {
-                                            user.role !== "USER" && <>
+                                            user.role == "USER" && <>
                                                 <NavDropdown.Item><NavLink to={'/productos-favoritos'} className="nav-link justify-content-end text-dark btn-floating">Productos Favoritos</NavLink></NavDropdown.Item>
 
                                             </>

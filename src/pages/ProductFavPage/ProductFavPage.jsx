@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
-import { Col } from "react-bootstrap"
+import { Col,Button } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import ProductCard from "../../components/ProductCard/ProductCard"
+import productService from "../../services/product.service"
 import userService from "../../services/user.service"
-
-
-
 
 const ProductFavPage = () => {
 
@@ -16,6 +14,19 @@ const ProductFavPage = () => {
             .getUserDetails()
             .then(({ data }) => {
                 setProductsFav(data.favProducts)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const removeFromFav = (product) => {        
+        const {_id}=product
+        console.log(_id)
+        productService
+            .productUnFav(_id)
+            .then(({ data }) => {
+                console.log('quitado de favs', data)
+                loadFavProducts()
+                // setProductsFav(data)
             })
             .catch(err => console.log(err))
     }
@@ -37,6 +48,7 @@ const ProductFavPage = () => {
                                 <div>
                                     <img src={product.imageUrl} />
                                     <div>{product.title}</div>
+                                    <Button onClick={()=>removeFromFav(product)}>hola</Button>
                                 </div>
                                 {/* <ul className="card-social">
                                     <li className="card-social__item">

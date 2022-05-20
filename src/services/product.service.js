@@ -60,7 +60,12 @@ class ProductService {
     productFav = id => {
         return this.app.post(`/${id}/productFav`)
     }
-
+    productUnFav = id => {
+        return this.app.post(`/${id}/productUnFav`)
+    }
+    visitCounter = id => {
+        return this.app.post(`/visitCounter/${id}`)
+    }
 
 }
 
