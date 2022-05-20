@@ -30,8 +30,7 @@ const SliderProducts = ({ products }) => {
             ?
             <Row>
                 {/* poner el fondo negro para que se vea las flechas */}
-                <div>
-
+                <div className='p-5'>
 
                     <Slider {...settings}>
                         {
@@ -40,7 +39,7 @@ const SliderProducts = ({ products }) => {
                                 return (
 
 
-                                    <Col md={{ span: 4 }} key={product._id}>
+                                    <Col md={{ span: 4 }} key={product._id} className="cardSlider">
                                         <ProductCard  {...product} />
                                     </Col>
 

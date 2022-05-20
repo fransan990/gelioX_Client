@@ -22,24 +22,41 @@ const ProductCard = ({ _id, imageUrl, title, owner, price }) => {
 
 
     return (
-        // <Card>
-        //     <Card.Img variant="top" src={imageUrl} className="" />
+        // <Card className='w-100'>
+        //     <Card.Img src={imageUrl} className="w-100 h-100 card-avatar" />
         //     <Card.Body>
-        //         <Card.Title>{title} hola</Card.Title>
-        //         <div className="d-grid gap-2">
-        //             {/* hacer el editar */}
-        //             <Link to={`/detalles/${_id}`} className="btn btn-dark">Ver detalles</Link>
-        //             <Button variant='warning' onClick={() => alert('hacer')}>Editar</Button>
-        //         </div>
-        //     </Card.Body>
-        // </Card>
+        //         <Card.Title>{title}</Card.Title>
+        //         <ul className="card-social">
+        //             <li className="card-social__item">
+        //                 {/* <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        //              <path d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"></path>
+        //          </svg> */}
+        //                 {/* {visitCounter} */}
+        //             </li>
+        //             <li className="card-social__item" onClick={addToFav}>
+
+        //                 {/* <div className='btn btn-danger btn-floating m-1 corazon'><FaHeart /></div> */}
+        //                 <FaHeart />
+
+        //             </li>
+        //             <li className="card-social__item">
+
+
+        //                 <Link to={`/detalles/${_id}`} className='btn btn-floating m-1'><FaSearch /></Link>
+
+
+        //             </li>
+        //         </ul>
+        //         {/* <Button variant="primary">Go somewhere</Button>k */}
+        //     </Card.Body >
+        // </Card >
         //termianr de preparar
 
 
-        <div className="card">
+        <Card >
             <div className="card-info">
-                {/* <div class="card-avatar"></div> */}
-                <img src={imageUrl} className="card-avatar" />
+
+                <img src={imageUrl} className=" card-avatar" />
                 <div className="card-title text-center">{title}</div>
                 <div className="card-title text-center">{price}$</div>
 
@@ -68,7 +85,7 @@ const ProductCard = ({ _id, imageUrl, title, owner, price }) => {
 
                 </li>
             </ul>
-        </div>
+        </Card>
     )
 }
 

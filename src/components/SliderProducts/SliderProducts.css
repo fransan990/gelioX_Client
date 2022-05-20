@@ -7,11 +7,16 @@
 
 }
 
-.card img {
+/* .card img {
     width: 400px;
-    height: 200px;
-}
+    height: auto;
+} */
 
-.card {
-    width: 400px;
+.cardSlider img {
+    background: linear-gradient(to top, #f1e1c1 0%, #fcbc97 100%);
+    width: 480px;
+
+    /* border-radius: 50%; */
+    transition: transform .2s ease;
+    margin-bottom: 1rem;
 }

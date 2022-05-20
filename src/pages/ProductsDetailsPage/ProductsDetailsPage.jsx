@@ -4,13 +4,15 @@ import productService from '../../services/product.service'
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import Loader from '../../components/Loader/Loader'
 import { CartContext } from "../../context/cart.context"
+import SliderProducts from '../../components/SliderProducts/SliderProducts'
+
 
 function ProductDetailsPage() {
 
     const [ProductDetails, setProductDetails] = useState()
-    const { cart, setCart, cartItems, setAddStatus, setShowCart, addItem} = useContext(CartContext)
+    const { cart, setCart, cartItems, setAddStatus, setShowCart, addItem } = useContext(CartContext)
     const { product_id } = useParams()
-    const [quantity, setQuantity]= useState(1)
+    const [quantity, setQuantity] = useState(1)
 
     useEffect(() => {
         productService
@@ -35,28 +37,40 @@ function ProductDetailsPage() {
             ?
             <Loader />
             :
-            <Container>
-                <h1>Detalles de {ProductDetails.title}</h1>
+            <Container className='mt-5'>
+                {/* <h5>{ProductDetails.title}</h5> */}
                 <hr />
                 <Row>
+                    <Col md={{ span: 6 }}>
+                        <img style={{ width: '100%' }} src={ProductDetails.imageUrl} alt={ProductDetails.title} />
+                    </Col>
                     <Col md={{ span: 4, offset: 1 }}>
-                        <h3>Información</h3>
+                        <h3>{ProductDetails.title}</h3>
+                        <p>Tamaño:{ProductDetails.size}</p>
+                        <p>Categoria: {ProductDetails.category}</p>
+                        <p>Precio:{ProductDetails.price}$</p>
+                        <hr />
                         <p>{ProductDetails.description}</p>
+
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="productQuantity">
                                 <Form.Label>Quantity</Form.Label>
                                 <Form.Control onChange={handleInputChange} type="number" min="0" value={quantity} maxvalue={ProductDetails.stock} name="productQuantity" />
                             </Form.Group>
                             <Button variant="dark" type="submit">Add to cart</Button>
-                        {/* meterle un ternario al formulario para que si no hay stock aparezca otra movida */}
+                            {/* meterle un ternario al formulario para que si no hay stock aparezca otra movida */}
                         </Form>
                     </Col>
-                    <Col md={{ span: 6 }}>
-                        <img style={{ width: '100%' }} src={ProductDetails.imageUrl} alt={ProductDetails.title} />
+                    {/* <SliderProducts /> */}
+
+
+
+                    <Col lg={6} className="mx-auto m-0">
+                        <Link to="/productos" className='d-block mt-5 text-center'>
+                            <Button variant="dark">Volver</Button>
+                        </Link>
                     </Col>
-                    <Link to="/productos">
-                        <Button variant="dark">Volver</Button>
-                    </Link>
+
                 </Row>
             </Container>
     )

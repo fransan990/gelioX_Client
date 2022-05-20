@@ -32,22 +32,23 @@ const CheckoutPage = () => {
 
 
     return (
-        <Container>
-            <h2>Finalizar pedido</h2>
+        <Container className="mt-5">
+            <h2 className="text-center mt-2">Finalizar pedido</h2>
             <hr />
             <Row>
-                <Col md={6}>
+                <Col md={7}>
                     <h4>Detalles del pedido</h4>
 
-                    <Table striped hover>
-                        <thead>
+                    <Table striped hover className="text-center">
+                        {/* <thead>
                             <tr>
+                                <th>Imagen</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
                                 <th>Precio/ud</th>
                                 <th>Subtotal</th>
                             </tr>
-                        </thead>
+                        </thead> */}
                         <tbody>
                             {cartItems.map((elm) => {
 
@@ -56,6 +57,14 @@ const CheckoutPage = () => {
                                 return (
                                     <>
                                         <tr>
+                                            <th className="p-3">Imagen</th>
+                                            <th className="p-3">Producto</th>
+                                            <th className="p-3">Cantidad</th>
+                                            <th className="p-3">Precio/ud</th>
+                                            <th className="p-3">Subtotal</th>
+                                        </tr>
+                                        <tr>
+                                            <td><img src={product.imageUrl} className="w-50 h-50" /></td>
                                             <td>{product.title}</td>
                                             <td>{elm.quantity} uds</td>
                                             <td>{product.price} €</td>
@@ -67,7 +76,7 @@ const CheckoutPage = () => {
                         </tbody>
                     </Table>
                 </Col>
-                <Col md={6}>
+                <Col md={5}>
 
                     <h4>Detalles de envío</h4>
 
