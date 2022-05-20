@@ -99,7 +99,8 @@ const Navigation = ({ setSend }) => {
 
                         </NavDropdown>
                         {isLoggedIn && <Button className="nav-link me-3 mx-4 bg-light border-0" onClick={handleShow}><FaShoppingCart className='FaShoppingCartClass' />
-                            {(cart?.items.length > 0) && <Badge className='mx-2 badgeCart'>{cart?.items.length}</Badge>}</Button>}
+                            {(cart?.items.length > 0) && <Badge className='mx-2 badgeCart'>{cart?.items.length}</Badge>}
+                        </Button>}
 
                     </Nav>
                 </Navbar.Collapse >
