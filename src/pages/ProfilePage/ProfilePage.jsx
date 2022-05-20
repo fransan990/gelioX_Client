@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react"
-import { Col, Container } from "react-bootstrap"
+import { Button, Col, Container, Row } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 import { AuthContext } from "../../context/auth.context"
 import userService from "../../services/user.service"
+
 
 //no funciona 
 
@@ -17,7 +19,7 @@ const ProfilePage = () => {
         userService
             .getUserDetails()
             .then(({ data }) => {
-                console.log(data)
+                // console.log("la data-", data)
                 setProfile(data)
             })
             .catch(err => console.log(err))
@@ -28,39 +30,27 @@ const ProfilePage = () => {
 
     console.log("perfil", profile)
     return (
-        <Col lg={12} className="mt-5 ">
-            <h4>Estamos</h4>
-            {
-                profile.map(user => {
+        <Col lg={6} className="mx-auto m-0 mt-5 border border-dark border-4 border-dark ">
+            <h4 className="mt-4 text-center">Bienvenido al perfil</h4>
+            <hr />
+            <Row>
+                <Col md={{ span: 12 }} className="mt-3 text-center ">
+                    <div>
+                        <div>
+                            <div className="mb-3">Nombre: {profile.fullName}</div>
+                            <div className="mb-3">Email: {profile.email}</div>
+                            <div className="mb-3">Nunero de telefono: {profile.phoneNumbe}</div>
+                            <div className="mb-3">Codigo postal: {profile.postalCode}</div>
+                        </div>
 
-                    return (
-                        <Col md={{ span: 4 }} key={user._id} className="mt-3">
-                            <div>
-                                <div>
-                                    {/* <img src={product.imageUrl} /> */}
-                                    <div>{user.username}</div>
-                                </div>
-                                {/* <ul className="card-social">
-                                    <li className="card-social__item">
-
-                                    </li>
-                                    <li className="card-social__item">
-
-                                        <Link to={`/${_id}/productsFav/`} className='btn btn-danger btn-floating m-1 corazon'><FaHeart /></Link>
-
-                                    </li>
-                                    <li className="card-social__item">
-
-                                        <Link to={`/detalles/${_id}`} className='btn btn-floating m-1'><FaSearch /></Link>
-
-
-                                    </li>
-                                </ul> */}
-                            </div>
-                        </Col>
-                    )
-                })
-            }
+                    </div>
+                </Col>
+                <Col lg={6} className="mx-auto m-0 mb-4">
+                    <Link to="/productos" className='d-block mt-5 text-center'>
+                        <Button variant="dark">Volver</Button>
+                    </Link>
+                </Col>
+            </Row>
         </Col>
 
     )

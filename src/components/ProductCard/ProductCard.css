@@ -6,19 +6,19 @@
 }
 
 .card-info {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     transition: transform .2s ease, opacity .2s ease;
 }
 
 /*Image*/
 .card-avatar {
-    --size: 60px;
+
     background: linear-gradient(to top, #f1e1c1 0%, #fcbc97 100%);
-    width: var(--size);
-    height: var(--size);
+    width: 294px;
+    height: 200px;
     /* border-radius: 50%; */
     transition: transform .2s ease;
     margin-bottom: 1rem;

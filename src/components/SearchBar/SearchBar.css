@@ -26,3 +26,8 @@ input:hover {
     opacity: 0;
     transition: opacity .3s;
 }
+
+.borderIzqu {
+    border-right: 2px solid black;
+
+}

@@ -3,8 +3,6 @@ import { Form } from "react-bootstrap"
 import { ProductContext } from "../../context/products.context"
 
 
-
-
 const FilterSize = () => {
 
     const { setSearchQuery, setFilterQuery } = useContext(ProductContext)
@@ -24,11 +22,6 @@ const FilterSize = () => {
         setfilterData({ ...filterData, [name]: value })
     }
     const { size } = filterData
-
-    console.log("tamaño--", size)
-
-
-
 
     return (
 

@@ -6,8 +6,8 @@ function MessageProviderWrapper(props) {
 
     const [show, setShow] = useState(true)
     const [messageInfo, setMessageInfo] = useState({
-        title: 'Esto de verdad funciona???',
-        description: 'creo que estamos en el contexto'
+        title: '',
+        description: ''
     })
 
     const showMessage = (title, description) => {

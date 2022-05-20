@@ -1,22 +1,22 @@
 import './Navigation.css'
-import { Navbar, Nav, NavDropdown, Col, Button, Offcanvas } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Col, Button, Offcanvas, Badge } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../context/auth.context'
-import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
 import { MessageContext } from './../../context/message.context'
 import SignupForm from '../SignupForm/SignupForm'
 import LoginForm from '../LoginForm/LoginForm'
 import MyModal from '../Modal/Modal'
 import NewProductForm from '../NewProductForm/NewProductForm'
-import OffCanvasEnd from '../OffCanvasEnd/OffCanvasEnd'
+
 import CartPage from '../../pages/CartPage/CartPage'
-
-
+import { CartContext } from '../../context/cart.context'
 
 const Navigation = ({ setSend }) => {
 
     const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+    const { cart } = useContext(CartContext)
 
     const [show, setShow] = useState(false);
 
@@ -40,7 +40,7 @@ const Navigation = ({ setSend }) => {
     const fireFinalActions = () => {
         closeModal()
         // loadCoasters()
-        showMessage('Completado', 'Nuevo Usuario')
+        showMessage('Completado', 'Inicio de sesion')
     }
 
     const title = modalInfo.content === 'login' ? 'Inicio de sesión' : modalInfo.content === 'signup' ? 'Registro' : modalInfo.content === 'newProduct' ? 'NuevoProducto' : modalInfo.content === 'cart' ? 'Carrito' : 'hola'
@@ -49,7 +49,7 @@ const Navigation = ({ setSend }) => {
 
         <Col xs={12} lg={12} className="mb-5">
             <Navbar collapseOnSelect expand="lg" border="danger" fixed="top" className='p-3  navbar-light bg-light opacity-75 fw-bold' >
-                <Navbar.Brand><NavLink to="/">gelioX</NavLink></Navbar.Brand>
+                <Navbar.Brand><NavLink to="/" className="text-dark btn-lg">gelioX</NavLink></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto"></Nav>
@@ -58,6 +58,7 @@ const Navigation = ({ setSend }) => {
                         <NavLink to="/" className="nav-link me-3 mx-4">Inicio</NavLink>
                         <NavLink to="/productos" className="nav-link me-3 mx-4">Productos</NavLink>
                         <NavDropdown title="Usuario" id="collasible-nav-dropdown" className='me-3 mx-4' >
+
 
                             {
                                 isLoggedIn
@@ -74,9 +75,9 @@ const Navigation = ({ setSend }) => {
                                         {
                                             user.role == "ADMIN" && <>
                                                 <NavDropdown.Divider />
-                                                <NavDropdown.Item className="nav-link justify-content-end text-dark">Bienvenido, {user.role}</NavDropdown.Item>
-                                                <NavDropdown.Item><NavLink to="/XXXXX" className="nav-link justify-content-end text-dark">BackOffice</NavLink></NavDropdown.Item>
-                                                <NavDropdown.Item className="nav-link justify-content-end text-dark" onClick={() => openModal('newProduct')}>Nuevo Producto</NavDropdown.Item>
+                                                <NavDropdown.Item className="nav-link text-center text-dark">Bienvenido, {user.role}</NavDropdown.Item>
+                                                {/* <NavDropdown.Item><NavLink to="/XXXXX" className="nav-link justify-content-end text-dark">BackOffice</NavLink></NavDropdown.Item> */}
+                                                <NavDropdown.Item className="nav-link text-center text-dark" onClick={() => openModal('newProduct')}>Nuevo Producto</NavDropdown.Item>
 
                                             </>
                                         }
@@ -87,7 +88,7 @@ const Navigation = ({ setSend }) => {
                                             </>
                                         }
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item className="nav-link text-center text-primary" onClick={logOutUser}><NavLink to="/">Cerrar sesión</NavLink></NavDropdown.Item>
+                                        <NavDropdown.Item className="nav-link text-center text-primary" onClick={logOutUser}><NavLink to="/" className="btn">Cerrar sesión</NavLink></NavDropdown.Item>
                                     </>
                                     :
                                     <>
@@ -97,8 +98,8 @@ const Navigation = ({ setSend }) => {
                             }
 
                         </NavDropdown>
-
-                        <Button className="nav-link me-3 mx-4" onClick={handleShow}>Cart</Button>
+                        {isLoggedIn && <Button className="nav-link me-3 mx-4 bg-light border-0" onClick={handleShow}><FaShoppingCart className='FaShoppingCartClass' />
+                            {(cart?.items.length > 0) && <Badge className='mx-2 badgeCart'>{cart?.items.length}</Badge>}</Button>}
 
                     </Nav>
                 </Navbar.Collapse >
@@ -106,7 +107,8 @@ const Navigation = ({ setSend }) => {
 
             <Offcanvas show={show} onHide={handleClose} placement={"end"}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title className='text-center'>Carrito</Offcanvas.Title>
+                    <Offcanvas.Title className='text-center'>
+                    </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <CartPage />
@@ -117,7 +119,6 @@ const Navigation = ({ setSend }) => {
                 {modalInfo.content === 'login' && <LoginForm fireFinalActions={fireFinalActions} />}
                 {modalInfo.content === 'signup' && <SignupForm fireFinalActions={fireFinalActions} />}
                 {modalInfo.content === 'newProduct' && <NewProductForm setSend={setSend} fireFinalActions={fireFinalActions} />}
-                {/* {modalInfo.content === 'cart' && <OffCanvasEnd fireFinalActions={fireFinalActions} />} */}
             </MyModal>
         </Col >
     )

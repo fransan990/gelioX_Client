@@ -6,13 +6,11 @@ import { AuthContext } from './../../context/auth.context'
 import { MessageContext } from '../../context/message.context'
 import { CartContext } from "../../context/cart.context"
 
-
-
 const Loginform = ({ fireFinalActions }) => {
 
     const { setGetStatus } = useContext(CartContext)
     const { isLoggedIn } = useContext(AuthContext)
-    
+
     const [loginData, setLoginData] = useState({
         password: '',
         email: ''

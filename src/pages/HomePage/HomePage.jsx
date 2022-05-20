@@ -7,7 +7,7 @@ import "aos/dist/aos.css"
 import { ProductContext } from "../../context/products.context";
 import SliderProducts from "../../components/SliderProducts/SliderProducts";
 import { FaFacebookF, FaGithub, FaGoogle, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
 
@@ -50,7 +50,7 @@ const HomePage = () => {
                         <h2 className="mb-3">FIND YOUR CALIFORNIA TRAVEL</h2>
                         <p className="mb-3">As featured on Harper's Bazaar, find you California's Nico Guilis shoots Vanessa Hudgens in Lisbon, Portugal.</p>
                         <button className="cta">
-                            <span>Hover me</span>
+                            <span><NavLink to="/productos" className="btn">Hover me</NavLink></span>
                             <svg viewBox="0 0 13 10" height="10px" width="15px">
                                 <path d="M1,5 L11,5"></path>
                                 <polyline points="8 1 12 5 8 9"></polyline>
@@ -83,7 +83,7 @@ const HomePage = () => {
                             Write a song, do a dance; there's something about that velvet dress. In the middle of nowhere you can get away with anything.
                         </p>
                         <button className="buttonCajaSeccion3Foto3">
-                            <span>Hover me</span>
+                            <span><NavLink to="/productos" className="btn">Hover me</NavLink></span>
                             <svg viewBox="0 0 13 10" height="10px" width="15px">
                                 <path d="M1,5 L11,5"></path>
                                 <polyline points="8 1 12 5 8 9"></polyline>
@@ -161,7 +161,7 @@ const HomePage = () => {
                             Write a song, do a dance; there's something about that velvet dress. In the middle of nowhere you can get away with anything.
                         </p>
                         <button className="buttonCajaSeccion3Foto3">
-                            <span>Hover me</span>
+                            <span><NavLink to="/productos" className="btn">Hover me</NavLink></span>
                             <svg viewBox="0 0 13 10" height="10px" width="15px">
                                 <path d="M1,5 L11,5"></path>
                                 <polyline points="8 1 12 5 8 9"></polyline>

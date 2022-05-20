@@ -8,7 +8,6 @@ const CartPage = () => {
     return (
         <>
             <Cart />
-            <Link to="/checkout">Finalizar compra</Link>
         </>
     )
 }

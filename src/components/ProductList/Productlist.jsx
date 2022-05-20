@@ -13,17 +13,22 @@ const ProductsList = ({ products }) => {
         products.length
             ?
             <Row>
-                {
-                    products.map(product => {
-                        return (
-                            <Col md={{ span: 4 }} key={product._id} className="mt-3" data-aos="fade-up"
-                                data-aos-duration="2000">
-                                <ProductCard  {...product} />
-                            </Col>
-                        )
-                    })
-                }
-            </Row>
+                <Col lg={10} className="mx-auto m-0">
+                    <Row>
+                        {
+                            products.map(product => {
+                                return (
+                                    <Col lg={3} key={product._id} className="mt-5 " data-aos="fade-up"
+                                        data-aos-duration="2000">
+                                        <ProductCard  {...product} />
+                                    </Col>
+                                )
+                            })
+                        }
+                    </Row>
+                </Col>
+
+            </Row >
             :
 
             <Loader />
