@@ -14,10 +14,6 @@ const ProductsPage = () => {
 
     const { products } = useContext(ProductContext)
 
-    useEffect(() => {
-        Aos.init({ duration: 2000 })
-    }, [])
-
     return (
 
         <Col md={12} className="mt-5">

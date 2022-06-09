@@ -43,6 +43,7 @@ function CartProviderWrapper(props) {
 
                 setCart(updatedCart)
                 setAddStatus(false)
+                getAllItems()
             })
             .catch(err => console.log(err))
     }
@@ -69,6 +70,7 @@ function CartProviderWrapper(props) {
             .getAllItems()
             .then(({ data }) => {
                 setCartItems(data)
+                getCart()
             })
             .catch(err => console.log(err))
     }

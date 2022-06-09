@@ -19,9 +19,11 @@ const Cart = () => {
 
     }
     const totalPricePerProduct = (item) => {
-        total += item.product.price * item.quantity
-        return item.product.price * item.quantity
+        total += item?.product?.price * item?.quantity
+        return item?.product?.price * item?.quantity
     }
+
+    console.log("cartItems--", cartItems)
 
     return (
         <Row>
@@ -29,35 +31,40 @@ const Cart = () => {
                 <Row>
                     {
                         cartItems.map(item => {
+                            console.log("item---", item)
                             const handleSubmit = e => {
                                 e.preventDefault()
                                 const { product } = item
+                                console.log("producto--", product)
                                 const { _id } = product
                                 deleteItem(_id)
                             }
                             console.log(total)
+
+                            console.log("item----", item)
+
                             return (
                                 <Col lg={12} className="mb-5">
                                     <Row>
                                         <Col lg={6}>
-                                            <img src={item.product.imageUrl} className="w-75 h-100 text-center" ></img>
+                                            <img src={item?.product?.imageUrl} className="w-75 h-100 text-center" ></img>
                                         </Col>
                                         <Col lg={6}>
                                             <Row>
                                                 <Col lg={12}>
-                                                    {item.product.title}
+                                                    {item?.product?.title}
                                                 </Col>
                                                 <Col lg={12}>
-                                                    Size {item.product.size}
+                                                    Size {item?.product?.size}
                                                 </Col>
                                                 <Col lg={12} className="mb-3">
-                                                    precio {item.product.price} $
+                                                    precio {item?.product?.price} $
                                                 </Col>
                                                 <Col lg={12}>
                                                     <Form onSubmit={handleSubmit}>
                                                         <Form.Group className="mb-3" controlId="productQuantity">
                                                             <Form.Label>Quantity</Form.Label>
-                                                            <Form.Control onChange={handleInputChange} type="number" min="0" maxvalue={item.product.stock} value={item.quantity} name="productQuantity" />
+                                                            <Form.Control onChange={handleInputChange} type="number" min="0" maxvalue={item?.product?.stock} value={item?.quantity} name="productQuantity" />
                                                             <Button size='sm' onClick={() => updateQuantity(item.product._id, item.quantity++)}>+</Button>
                                                             <Button size='sm' onClick={() => updateQuantity(item.product._id, item.quantity--)}>-</Button>
                                                         </Form.Group>

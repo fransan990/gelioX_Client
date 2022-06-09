@@ -11,10 +11,6 @@ import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
 
-    useEffect(() => {
-        Aos.init({ duration: 2000 })
-    }, [])
-
     const { products } = useContext(ProductContext)
     console.log('en la homepage --Z', products)
 

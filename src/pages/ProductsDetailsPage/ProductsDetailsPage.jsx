@@ -89,6 +89,8 @@ function ProductDetailsPage() {
                         <hr />
                         <p>{ProductDetails.description}</p>
 
+
+
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="productQuantity">
                                 <Form.Label>Quantity</Form.Label>
@@ -101,37 +103,50 @@ function ProductDetailsPage() {
                                 <Button variant="dark" type="submit" disabled >No stock left</Button>}
                         </Form>
                     </Col>
-                    {/* <SliderProducts /> */}
 
 
 
-                    <Col lg={6} className="mx-auto m-0">
+                    <Col lg={12} className="mx-auto m-0 mb-5">
                         <Link to="/productos" className='d-block mt-5 text-center'>
                             <Button variant="dark">Volver</Button>
                         </Link>
                     </Col>
-                    <Link to="/productos">
-                        <Button variant="dark">Volver</Button>
-                    </Link>
-                    <Form onSubmit={handleCommentSubmit}>
-                        <Form.Group className="mb-3" controlId="comment">
-                            <Form.Label>Comment something</Form.Label>
-                            <Form.Control onChange={handleCommentChange} type="text" value={comment} name="comment" />
-                        </Form.Group>
-                        <Button variant="dark" type="submit">Post</Button>
-                    </Form>
-                </Row>
 
-                {
-                    comments.map(eachComment => {
-                        return (
-                            <>
-                                <p>{eachComment.description}</p>
-                                <p>{eachComment.owner.fullName}</p>
-                            </>
-                        )
-                    })
-                }
+                    <Col lg={9} className="mx-auto m-0 border-1 border border-dark">
+
+                        <Form onSubmit={handleCommentSubmit}>
+                            <Form.Group className="mb-3" controlId="comment">
+                                <Form.Label className=' d-block text-center mx-auto m-0 mb-5 mt-3'>Comentarios</Form.Label>
+                                <Form.Control onChange={handleCommentChange} type="text" value={comment} name="comment" />
+                            </Form.Group>
+                            <Button className='w-50 mb-5 mx-auto m-0 d-block' variant="dark" type="submit">Enviar</Button>
+                        </Form>
+                        <Row>
+
+
+
+
+                            {
+                                comments.map(eachComment => {
+                                    return (
+                                        <Col lg={12} className="border-1 border border-dark w-50 mx-auto m-0">
+                                            <Row>
+                                                <Col lg={12}>
+                                                    <p className='text-center'>{eachComment.owner.fullName}</p>
+                                                </Col>
+                                                <Col lg={12}>
+                                                    <p className='text-center'>{eachComment.description}</p>
+                                                </Col>
+                                            </Row>
+
+                                        </Col>
+                                    )
+                                })
+                            }
+                        </Row>
+
+                    </Col>
+                </Row>
             </Container>
     )
 }

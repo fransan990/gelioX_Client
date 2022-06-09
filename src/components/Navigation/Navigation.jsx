@@ -70,6 +70,8 @@ const Navigation = ({ setSend }) => {
                                             user.role == "SUPPLIER" && <>
                                                 <NavDropdown.Divider />
                                                 <NavDropdown.Item className="nav-link justify-content-end text-dark">Bienvenido, {user.role}</NavDropdown.Item>
+                                                <NavDropdown.Item><NavLink to={'/productos-favoritos'} className="nav-link justify-content-end text-dark btn-floating">Productos Favoritos</NavLink></NavDropdown.Item>
+
                                             </>
                                         }
                                         {
@@ -78,6 +80,8 @@ const Navigation = ({ setSend }) => {
                                                 <NavDropdown.Item className="nav-link text-center text-dark">Bienvenido, {user.role}</NavDropdown.Item>
                                                 {/* <NavDropdown.Item><NavLink to="/XXXXX" className="nav-link justify-content-end text-dark">BackOffice</NavLink></NavDropdown.Item> */}
                                                 <NavDropdown.Item className="nav-link text-center text-dark" onClick={() => openModal('newProduct')}>Nuevo Producto</NavDropdown.Item>
+                                                <NavDropdown.Item><NavLink to={'/productos-favoritos'} className="nav-link justify-content-end text-dark btn-floating">Productos Favoritos</NavLink></NavDropdown.Item>
+
 
                                             </>
                                         }
@@ -99,7 +103,7 @@ const Navigation = ({ setSend }) => {
 
                         </NavDropdown>
                         {isLoggedIn && <Button className="nav-link me-3 mx-4 bg-light border-0" onClick={handleShow}><FaShoppingCart className='FaShoppingCartClass' />
-                            {(cart?.items.length > 0) && <Badge className='mx-2 badgeCart'>{cart?.items.length}</Badge>}
+                            {(cart?.items?.length == undefined) ? <Badge className='mx-2 badgeCart'>0</Badge> : <Badge className='mx-2 badgeCart'>{cart?.items?.length}</Badge>}
                         </Button>}
 
                     </Nav>

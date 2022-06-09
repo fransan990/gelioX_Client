@@ -18,8 +18,8 @@ const ProductFavPage = () => {
             .catch(err => console.log(err))
     }
 
-    const removeFromFav = (product) => {        
-        const {_id}=product
+    const removeFromFav = (product) => {
+        const { _id } = product
         console.log(_id)
         productService
             .productUnFav(_id)
@@ -41,19 +41,20 @@ const ProductFavPage = () => {
         <Col lg={12} className="mt-5 ">
             <Row>
 
-                <h4>Estamos</h4>
+                <h4 className="text-center mb-3">Productos Favoritos</h4>
+                <hr className="mb-5" />
                 {
                     productsFav.map(product => {
                         return (
                             <Col md={{ span: 4 }} key={product._id} className="mt-3">
                                 <div>
                                     <div>
-                                        <img src={product.imageUrl} className="w-75 h-50" />
-                                        <div>{product.title}</div>
+                                        <img src={product.imageUrl} className="img-fluid d-block mx-auto m-0" />
+                                        <div className="mt-4 mx-auto m-0">{product.title}</div>
                                         <div>Precio {product.price} $</div>
                                         <div>Tamaño {product.size}</div>
-                                        <div>{product.description}</div>
-                                        <Button onClick={() => removeFromFav(product)}>hola</Button>
+                                        <div className="mb-5 w-75">{product.description}</div>
+                                        <Button className="w-75 mx-auto m-0 d-block" onClick={() => removeFromFav(product)}>Quitar</Button>
                                     </div>
                                 </div>
                             </Col>
