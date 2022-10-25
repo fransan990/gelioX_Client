@@ -1,6 +1,6 @@
 # gelioX (Ecommerce) 🛒👕
 
-<img  src="../public/images/InicioPagina.png" alt="Portada" style="max-width: 100%;"/>
+<img  src="../public/images/InicioPagina.png" alt="PortadaInicio" style="max-width: 100%;"/>
 
 ## TEST OUR WEB
 
