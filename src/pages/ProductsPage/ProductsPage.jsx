@@ -11,6 +11,9 @@ import Aos from "aos";
 
 
 const ProductsPage = () => {
+    useEffect(() => {
+        Aos.init({ duration: 2000 })
+    }, [])
 
     const { products } = useContext(ProductContext)
 
