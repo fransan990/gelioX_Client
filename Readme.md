@@ -1,6 +1,6 @@
 # gelioX (Ecommerce) 🛒👕
 
-<img  src="../public/images/InicioPagina.png" alt="PortadaInicio" style="max-width: 100%;"/>
+<img  src="https://github.com/fransan990/gelioX_Client/blob/main/public/images/InicioPagina.png" style="max-width: 100%;"/>
 
 ## TEST OUR WEB
 
