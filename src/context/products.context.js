@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect } from 'react'
 import productService from '../services/product.service'
 
 const ProductContext = createContext()
-//Hacer que funcione todos los filtros 
 
 function ProductProviderWrapper(props) {
 
@@ -34,7 +33,6 @@ function ProductProviderWrapper(props) {
             })
             .catch(err => console.log(err))
     }
-
 
     return (
         <ProductContext.Provider value={{ products, setProducts, setSearchQuery, searchQuery, loadproducts, filterProducts }}>

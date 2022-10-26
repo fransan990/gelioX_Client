@@ -19,19 +19,15 @@ const SearchBar = () => {
     const { string, size, category } = searchQuery
 
     return (
+
         <>
             <Form>
                 <Row>
                     <Col lg={12} className="mt-4">
                         <Row>
-
-
-
-
                             <Col lg={3} className="borderIzqu">
                                 <Row>
                                     <Col lg={4} className="mx-auto m-0">
-                                        {/* <Form.Label className="text-center">Tamaño</Form.Label> */}
                                         <Form.Control as='select' aria-label="Default select example" className="mb-3" name="size" value={size} onChange={handleInputChange}>
                                             {/* <option value="Seleciona">Selecciona un valor</option> */}
                                             <option value="XXL">XXL</option>
@@ -42,42 +38,28 @@ const SearchBar = () => {
                                             <option value="XS">XS</option>
                                         </Form.Control>
                                     </Col>
-
                                 </Row>
-
                             </Col>
                             <Col lg={6} className="mx-auto m-0 group borderIzqu">
-                                {/* <Form onKeyUp={handleSubmit} > */}
                                 <Form.Group className="mb-5" controlId="form">
-                                    {/* <Form.Label>Buscador</Form.Label> */}
                                     <Form.Control type="text" onChange={handleInputChange} name="string" value={string} className="input" placeholder="Escribe para buscar" />
                                 </Form.Group>
-                                {/* </Form > */}
                             </Col>
                             <Col lg={3}>
                                 <Row>
                                     <Col lg={4} className="mx-auto m-0">
-                                        {/* <Form.Label className="text-center">Categoria</Form.Label> */}
                                         <Form.Control as='select' aria-label="Default select example" className="mb-3" name="category" value={category} onChange={handleInputChange}>
-                                            {/* <option value="Seleciona">Selecciona un valor</option> */}
                                             <option value="Nike">Nike</option>
                                             <option value="sneakers">sneakers</option>
                                             <option value="apparel">apparel</option>
                                         </Form.Control>
                                     </Col>
-
                                 </Row>
-
                             </Col>
-
-                            {/* </Form> */}
                         </Row>
                     </Col>
                 </Row>
-
-
             </Form>
-
         </>
 
     )

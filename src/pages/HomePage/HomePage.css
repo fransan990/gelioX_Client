@@ -58,8 +58,6 @@ h1 {
 
 .boxIz {
     position: absolute;
-    /* top: 3px; */
-    /* bottom: -67px; */
     top: 145%;
     left: 70px;
     width: 343px;
@@ -99,8 +97,6 @@ h1 {
     left: 34%;
 
 }
-
-/* //boton  */
 
 .cta {
     position: relative;
@@ -178,8 +174,6 @@ h1 {
 
 .cajaSeccion5Foto2_1 {
     position: relative;
-    /* top: 12px; */
-    /* left: 12px; */
     right: 450px;
     height: 300px;
     width: 120px;
@@ -195,15 +189,12 @@ h1 {
 }
 
 .cajaSeccion3Foto3 {
-
     position: relative;
-    /* bottom: 479px; */
     left: 590px;
     text-align: center;
     background-color: white;
     padding: 80px;
     bottom: 498px;
-
 
 }
 
@@ -386,7 +377,7 @@ h5 {
 
 .cajaSeccion7 {
     position: absolute;
-    top: 590%;
+    top: 538%;
 }
 
 .cajaSeccion7 img {

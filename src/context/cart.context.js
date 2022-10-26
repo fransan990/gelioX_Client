@@ -19,11 +19,6 @@ function CartProviderWrapper(props) {
 
     useEffect(() => {
         getStatus && getCart()
-        console.log('er puto goddamn carro is here biatchhhh, tengo el puto controoooooool', cart)
-        // addStatus && addItem()
-        // quantityStatus && updateQuantity()
-        // deleteStatus && deleteItem()
-        // showCart && getAllitems()
     }, [getStatus, addStatus])
 
     const getCart = () => {

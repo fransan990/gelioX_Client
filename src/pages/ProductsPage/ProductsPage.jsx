@@ -8,9 +8,8 @@ import FilterSize from '../../components/FilterSize/FilterSize'
 import "aos/dist/aos.css"
 import Aos from "aos";
 
-
-
 const ProductsPage = () => {
+
     useEffect(() => {
         Aos.init({ duration: 2000 })
     }, [])
@@ -33,15 +32,11 @@ const ProductsPage = () => {
                 <Col lg={12} className="colorFiltro">
                     <SearchBar />
                 </Col>
-
-                {/* <FilterSize /> */}
             </Row>
-
-
-
 
             <ProductsList products={products} />
         </Col>
+
     )
 }
 

@@ -7,7 +7,6 @@ import { FaHeart, FaSearch } from "react-icons/fa";
 import productService from '../../services/product.service'
 import { FaEye } from 'react-icons/fa'
 
-
 const ProductCard = ({ _id, imageUrl, title, owner, price, visitCounter }) => {
 
     const { user } = useContext(AuthContext)
@@ -29,9 +28,6 @@ const ProductCard = ({ _id, imageUrl, title, owner, price, visitCounter }) => {
                 console.log('los datos de visit counter',)
             })
     }
-
-
-
 
     return (
 
@@ -60,7 +56,5 @@ const ProductCard = ({ _id, imageUrl, title, owner, price, visitCounter }) => {
     )
 }
 
-//comprobar el owner
-// owner && owner === user?._id && boton que queremos que aparezca
 
 export default ProductCard

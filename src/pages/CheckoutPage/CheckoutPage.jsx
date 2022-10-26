@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom"
 import { CartContext } from "../../context/cart.context"
 import orderService from "../../services/order.service"
 
-
 const CheckoutPage = () => {
 
     const { cart, cartItems } = useContext(CartContext)
@@ -30,7 +29,6 @@ const CheckoutPage = () => {
 
     const { address1, address2, postalCode, city } = orderDetails
 
-
     return (
         <Container className="mt-5">
             <h2 className="text-center mt-2">Finalizar pedido</h2>
@@ -38,20 +36,9 @@ const CheckoutPage = () => {
             <Row>
                 <Col md={7}>
                     <h4>Detalles del pedido</h4>
-
                     <Table striped hover className="text-center">
-                        {/* <thead>
-                            <tr>
-                                <th>Imagen</th>
-                                <th>Producto</th>
-                                <th>Cantidad</th>
-                                <th>Precio/ud</th>
-                                <th>Subtotal</th>
-                            </tr>
-                        </thead> */}
                         <tbody>
                             {cartItems.map((elm) => {
-
                                 const { product } = elm
 
                                 return (
@@ -77,9 +64,7 @@ const CheckoutPage = () => {
                     </Table>
                 </Col>
                 <Col md={5}>
-
                     <h4>Detalles de envío</h4>
-
                     <Form onSubmit={handleForm}>
 
                         <Form.Group className="mb-3" controlId="address1">
@@ -105,13 +90,11 @@ const CheckoutPage = () => {
                             </Form.Group>
 
                         </Row>
-
                         <Button variant="dark" type="submit">Comprar</Button>
 
                     </Form>
                 </Col>
             </Row>
-
         </Container>
     )
 }

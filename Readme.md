@@ -46,7 +46,7 @@
 
 
 
-## RUTES
+## RUTES Back-End
 
 
 ### Auth
@@ -117,6 +117,84 @@
 | Method | URL | Description | Protected | Roles |
 |--------|-----|-------------|-----------|-------|
 | `POST` | `/api/upload/image` | UploadImage | True | All | 
+
+
+## RUTES Front-end
+
+
+| URL | Description | Protected |
+|-----|-------------|-----------|
+| `/` | HomePage | False | 
+| `/registro` | Signup | False | 
+| `/productos` | ProductsPage | False | 
+| `/detalles/:product_id` | ProductDetailsPage | False | 
+| `/inicio-sesion` | Login | False | 
+| `/productos-favoritos` | ProductFavPage | True | 
+| `/checkout` | CheckoutPage | False | 
+| `/thankyou` | thank you for your purchase  | False | 
+| `/perfil` | ProfilePage | True | 
+
+
+
+### Components
+
++ Components
+    + Cart
+        + Cart.jsx
+        + Cart.css
+    + FilterSize
+        + FilterSize.jsx
+        + FilterSize.css    
+    + Footer
+        + Footer.jsx
+        + Footer.css
+    + Loader
+        + Loader.jsx
+        + Loader.css
+    + LoginForm
+        + LoginForm.jsx
+        + LoginForm.css 
+    + Modal
+        + Modal.jsx
+        + Modal.css   
+    + Navigation
+        + Navigation.jsx
+        + Navigation.css
+    + NewProductForm
+        + NewProductForm.jsx
+        + NewProductForm.css
+    + ProductCard
+        + ProductCard.jsx
+        + ProductCard.css
+    + ProductsList
+        + ProductsList.jsx
+        + ProductsList.css
+    + SearchBar
+        + SearchBar.jsx
+        + SearchBar.css
+    + SignupForm
+        + SignupForm.jsx
+        + SignupForm.css
+    + SliderProducts
+        + SliderProducts.jsx
+        + SliderProducts.css
+    + UserMessage
+        + UserMessage.jsx
+        + UserMessage.css
+
+
+### Pages
+
++ CartPage
++ CheckoutPage
++ HomePage
++ LoginPage
++ ProductFavPage
++ ProductsDetailsPage
++ ProductsPage
++ ProfilePage
++ SignupPage
+
 
 
 

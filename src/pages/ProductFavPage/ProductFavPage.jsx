@@ -26,7 +26,6 @@ const ProductFavPage = () => {
             .then(({ data }) => {
                 console.log('quitado de favs', data)
                 loadFavProducts()
-                // setProductsFav(data)
             })
             .catch(err => console.log(err))
     }
@@ -35,12 +34,10 @@ const ProductFavPage = () => {
         loadFavProducts()
     }, [])
 
-
     return (
 
         <Col lg={12} className="mt-5 ">
             <Row>
-
                 <h4 className="text-center mb-3">Productos Favoritos</h4>
                 <hr className="mb-5" />
                 {
@@ -62,14 +59,9 @@ const ProductFavPage = () => {
                     })
                 }
             </Row>
-
         </Col>
 
-
     )
-
-
-
 }
 
 export default ProductFavPage

@@ -8,7 +8,6 @@ import { AuthContext } from '../../context/auth.context'
 import commentService from '../../services/comment.service'
 import SliderProducts from '../../components/SliderProducts/SliderProducts'
 
-
 function ProductDetailsPage() {
 
     const [ProductDetails, setProductDetails] = useState()
@@ -57,15 +56,7 @@ function ProductDetailsPage() {
             .then(({ data }) => {
                 console.log('la fucking data', data)
                 setComments(data)
-                // console.log(data)
-                // data.map((eachComment) => {
-                //     const { description, owner } = eachComment
-                //     const { fullName } = owner
-                //     console.log(fullName, description)
-                //     setComments(comments.push({ fullName, description }))
-                //     console.log(comments)
             })
-
     }
 
     return (
@@ -75,7 +66,6 @@ function ProductDetailsPage() {
             <Loader />
             :
             <Container className='mt-5'>
-                {/* <h5>{ProductDetails.title}</h5> */}
                 <hr />
                 <Row>
                     <Col md={{ span: 6 }}>
@@ -89,8 +79,6 @@ function ProductDetailsPage() {
                         <hr />
                         <p>{ProductDetails.description}</p>
 
-
-
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="productQuantity">
                                 <Form.Label>Quantity</Form.Label>
@@ -103,8 +91,6 @@ function ProductDetailsPage() {
                                 <Button variant="dark" type="submit" disabled >No stock left</Button>}
                         </Form>
                     </Col>
-
-
 
                     <Col lg={12} className="mx-auto m-0 mb-5">
                         <Link to="/productos" className='d-block mt-5 text-center'>
@@ -122,9 +108,6 @@ function ProductDetailsPage() {
                             <Button className='w-50 mb-5 mx-auto m-0 d-block' variant="dark" type="submit">Enviar</Button>
                         </Form>
                         <Row>
-
-
-
 
                             {
                                 comments.map(eachComment => {
@@ -144,7 +127,6 @@ function ProductDetailsPage() {
                                 })
                             }
                         </Row>
-
                     </Col>
                 </Row>
             </Container>

@@ -2,7 +2,6 @@ import { useContext } from "react"
 import { AuthContext } from "../context/auth.context"
 import { MessageContext } from "../context/message.context"
 import { Navigate, Outlet } from 'react-router-dom'
-// import Loader from "../components/Loader/Loader"
 
 const PrivateRoute = () => {
 

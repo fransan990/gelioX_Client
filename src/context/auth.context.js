@@ -1,6 +1,5 @@
 import React, { createContext, useState } from 'react'
 import { useEffect } from 'react';
-// import { Navigate } from 'react-router-dom';
 import authService from '../services/auth.service';
 
 const AuthContext = createContext()
@@ -22,7 +21,6 @@ function AuthProviderWrapper(props) {
     const getToken = () => {
         return localStorage.getItem("authToken")
     }
-
 
     const authenticateUser = () => {
 

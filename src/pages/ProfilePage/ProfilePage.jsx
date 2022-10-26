@@ -1,16 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
-
 import { AuthContext } from "../../context/auth.context"
 import userService from "../../services/user.service"
 
-
-//no funciona 
-
 const ProfilePage = () => {
-
-    // // const { user } = useContext(AuthContext)
 
     const [profile, setProfile] = useState([])
 
@@ -19,17 +13,17 @@ const ProfilePage = () => {
         userService
             .getUserDetails()
             .then(({ data }) => {
-                // console.log("la data-", data)
                 setProfile(data)
             })
             .catch(err => console.log(err))
     }
+
     useEffect(() => {
         perfil1()
     }, [])
 
-    console.log("perfil", profile)
     return (
+
         <Col lg={6} className="mx-auto m-0 mt-5 border border-dark border-4 border-dark ">
             <h4 className="mt-4 text-center">Bienvenido al perfil</h4>
             <hr />

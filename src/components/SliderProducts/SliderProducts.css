@@ -1,22 +1,11 @@
 .slick-arrow {
-    /* width: 550px;
-    position: absolute;
-    /* padding: 80px; */
-    /* left: 23%; */
     background-color: black !important;
 
 }
 
-/* .card img {
-    width: 400px;
-    height: auto;
-} */
-
 .cardSlider img {
     background: linear-gradient(to top, #f1e1c1 0%, #fcbc97 100%);
     width: 480px;
-
-    /* border-radius: 50%; */
     transition: transform .2s ease;
     margin-bottom: 1rem;
 }

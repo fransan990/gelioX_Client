@@ -5,10 +5,7 @@ import ProductCard from "../ProductCard/ProductCard"
 
 const ProductsList = ({ products }) => {
 
-
     return (
-
-
 
         products.length
             ?
@@ -32,7 +29,6 @@ const ProductsList = ({ products }) => {
             :
 
             <Loader />
-
 
     )
 }

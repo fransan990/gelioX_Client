@@ -1,3 +1,4 @@
+import "./FilterSize.css"
 import { useContext, useState } from "react"
 import { Form } from "react-bootstrap"
 import { ProductContext } from "../../context/products.context"

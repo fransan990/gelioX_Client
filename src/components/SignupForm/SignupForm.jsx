@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.service"
-// import { useNavigate } from 'react-router-dom'
 
 const SignupForm = ({ fireFinalActions }) => {
 
@@ -14,8 +13,6 @@ const SignupForm = ({ fireFinalActions }) => {
         postalCode: '',
 
     })
-
-    // const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
