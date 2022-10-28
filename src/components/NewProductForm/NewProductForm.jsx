@@ -91,6 +91,7 @@ const NewProductForm = ({ fireFinalActions }) => {
                 <Col lg={6}>
                     <Form.Label>Categoria</Form.Label>
                     <Form.Control as='select' aria-label="Default select example" className="mb-3" name="category" value={category} onChange={handleInputChange}>
+                        <option>Elije una categoria</option>
                         <option value="sneakers">sneakers</option>
                         <option value="apparel">apparel</option>
                     </Form.Control>
@@ -99,7 +100,8 @@ const NewProductForm = ({ fireFinalActions }) => {
                 <Col lg={6}>
                     <Form.Label>Tamaño</Form.Label>
                     <Form.Control as='select' aria-label="Default select example" className="mb-3" name="size" value={size} onChange={handleInputChange}>
-                        <option value="XXL">XXL</option>
+                        <option>Elije una talla</option>
+                        <option value="XXL" selected>XXL</option>
                         <option value="Xl">Xl</option>
                         <option value="L">L</option>
                         <option value="M">M</option>
